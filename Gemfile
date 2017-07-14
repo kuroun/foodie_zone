@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.9'
 gem 'pg'
 gem "twitter-bootstrap-rails"
+gem 'seed_migration'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
