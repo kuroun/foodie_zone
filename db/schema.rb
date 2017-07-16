@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713212028) do
+ActiveRecord::Schema.define(version: 20170716195249) do
 
   create_table "days", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170713212028) do
     t.datetime "updated_at",    null: false
   end
 
+  add_index "restaurant_zone_days", ["restaurant_id", "zone_day_id"], name: "index_restaurant_zone_days_on_restaurant_id_and_zone_day_id", unique: true
   add_index "restaurant_zone_days", ["restaurant_id"], name: "index_restaurant_zone_days_on_restaurant_id"
   add_index "restaurant_zone_days", ["zone_day_id"], name: "index_restaurant_zone_days_on_zone_day_id"
 
