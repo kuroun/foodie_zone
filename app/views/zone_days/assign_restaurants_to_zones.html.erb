@@ -1,17 +1,27 @@
 <h1><%= "Assign Restaurants to Zones on #{@day.name}" %></h1>
-<table class="table">
+<hr>
+<%= link_to 'Back', delivery_schedule_index_path, class: 'btn btn-default back-navigation', type: 'button' %>
+<table class="table table-striped table-bordered">
   <tr>
     <th>Restaurants</th>
     <th>Zones</th>
   </tr>
   <% @restaurants.each do |restaurant| %>
     <tr>
-        <td><%= restaurant.restaurant_name %></td>
+        <td><%= restaurant.name %></td>
         <td>
-          <%= form_tag url_for(controller: 'restaurant_zone_days', action: 'update_create'), method: 'get' do %>
-            <%= select_tag 'zone_day_id', options_from_collection_for_select(@zone_days, 'id', 'id'), :onchange => "this.form.submit();" %>
+          <%= form_tag url_for(controller: 'restaurant_zone_days', action: 'update_create'), method: 'post' do %>
+            <%= hidden_field_tag 'restaurant_id', restaurant.id %>
+            <%= hidden_field_tag 'day_id', @day.id %>
+            <%= select_tag 'zone_day_id', options_from_collection_for_select(@zone_days, 'zone_day_id', 'zone_name', RestaurantZoneDay.restaurant_assigned_to_any_zones_by_day(restaurant.id, @day.id)&.zone_day_id), onchange: 'this.form.submit();', class: 'form-control', include_blank: 'None' %>
           <% end %>
         </td>
     </tr>
   <% end %>
 </table>
+<nav aria-label="">
+  <ul class="pager">
+    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Sunday</a></li>
+    <li class="next"><a href="#">Tuesday <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
