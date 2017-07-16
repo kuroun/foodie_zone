@@ -155,6 +155,8 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     seed_migration (1.2.2)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -202,6 +204,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   seed_migration
+  shoulda-matchers (~> 3.1)
   spring
   sqlite3
   turbolinks

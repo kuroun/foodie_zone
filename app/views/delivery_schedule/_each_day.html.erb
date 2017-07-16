@@ -1,0 +1,14 @@
+<h4 class="total-restaurants">
+  <span class="label label-info">Total Restaurants: 30</span>
+</h4>
+<% zones.where('days.name' => day).each do |zone_day| %>
+  <div class="btn-group" role="group">
+      <button type="button" class="btn btn-xs btn-default"><%= zone_day.zone.name %></button>
+      <%= link_to "", class: "btn btn-xs btn-danger zone-list"  do %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
+  </div>
+  <br>
+<% end %>
+<%= link_to "Add Zone", add_zone_path(day_id: Day.find_by(name: day).id), class: "btn btn-xs btn-warning adding-button", remote: true %>
+<%= link_to "Assign Restaurants to Zones", assign_restaurants_to_zones_path(day_id: Day.find_by(name: day).id), class: "btn btn-xs btn-success adding-button" %>

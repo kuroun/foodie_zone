@@ -1,0 +1,17 @@
+<h1><%= "Assign Restaurants to Zones on #{@day.name}" %></h1>
+<table class="table">
+  <tr>
+    <th>Restaurants</th>
+    <th>Zones</th>
+  </tr>
+  <% @restaurants.each do |restaurant| %>
+    <tr>
+        <td><%= restaurant.restaurant_name %></td>
+        <td>
+          <%= form_tag url_for(controller: 'restaurant_zone_days', action: 'update_create'), method: 'get' do %>
+            <%= select_tag 'zone_day_id', options_from_collection_for_select(@zone_days, 'id', 'id'), :onchange => "this.form.submit();" %>
+          <% end %>
+        </td>
+    </tr>
+  <% end %>
+</table>

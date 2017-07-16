@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'day/:day_id/assign_restaurants_to_zones', to: 'zone_days#assign_restaurants_to_zones', as: 'assign_restaurants_to_zones'
+  get 'day/:day_id/add_zone', to: 'zone_days#add_zone', as: 'add_zone'
+  get 'restaurant_zone_days/update_create', to: 'restaurant_zone_days#update_create', as: 'update_create_restaurant_zone_day'
+
+  get 'delivery_schedule/index'
+  root 'delivery_schedule#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

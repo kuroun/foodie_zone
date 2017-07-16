@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ZoneDay, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :zone }
+  it { should belong_to :day }
+  it { should have_many :restaurant_zone_days }
 end
