@@ -3,6 +3,7 @@ class Zone < ActiveRecord::Base
   has_many :days, through: :zone_days
 
   validates :name, uniqueness: true
+  validates :name, presence: true
 
   scope :only_in_day, -> (day_id) {
     joins("inner join zone_days on zones.id = zone_days.zone_id")

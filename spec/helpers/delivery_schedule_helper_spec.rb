@@ -13,8 +13,9 @@ require 'rails_helper'
 RSpec.describe DeliveryScheduleHelper, type: :helper do
   describe '#total_restaurants' do
     it 'should return the total number of restaurants assigned each day' do
-      restaurant1 = Restaurant.create(name: 'Restaurant1')
-      restaurant2 = Restaurant.create(name: 'Restaurant2')
+      restaurant_owner1 = RestaurantOwner.create(name: 'John')
+      restaurant1 = Restaurant.create(name: 'Restaurant1', restaurant_owner_id: restaurant_owner1.id)
+      restaurant2 = Restaurant.create(name: 'Restaurant2', restaurant_owner_id: restaurant_owner1.id)
       monday = Day.create(name: 'Monday')
       zone1 = Zone.create(name: 'Zone 1')
       zone2 = Zone.create(name: 'Zone 2')
@@ -29,8 +30,9 @@ RSpec.describe DeliveryScheduleHelper, type: :helper do
 
   describe '#total_restaurants_each_zone' do
     it 'should return the total number of restaurants assigned to a zone each day' do
-      restaurant1 = Restaurant.create(name: 'Restaurant1')
-      restaurant2 = Restaurant.create(name: 'Restaurant2')
+      restaurant_owner1 = RestaurantOwner.create(name: 'John')
+      restaurant1 = Restaurant.create(name: 'Restaurant1', restaurant_owner_id: restaurant_owner1.id)
+      restaurant2 = Restaurant.create(name: 'Restaurant2', restaurant_owner_id: restaurant_owner1.id)
       monday = Day.create(name: 'Monday')
       zone1 = Zone.create(name: 'Zone 1')
       zone2 = Zone.create(name: 'Zone 2')

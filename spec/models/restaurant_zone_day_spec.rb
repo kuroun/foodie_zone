@@ -9,7 +9,8 @@ RSpec.describe RestaurantZoneDay, type: :model do
 
   describe '.restaurant_assigned_to_any_zones_by_day' do
     it 'expect to return if a restaurant has been assigned to any zone in a specific day' do
-      restaurant1 = Restaurant.create(name: 'Restaurant1')
+      restaurant_owner1 = RestaurantOwner.create(name: 'John')
+      restaurant1 = Restaurant.create(name: 'Restaurant1', restaurant_owner_id: restaurant_owner1.id)
       monday = Day.create(name: 'Monday')
       zone1 = Zone.create(name: 'Zone 1')
       zone_day1 = ZoneDay.create(zone_id: zone1.id, day_id: monday.id)

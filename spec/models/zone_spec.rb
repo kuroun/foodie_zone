@@ -4,6 +4,7 @@ RSpec.describe Zone, type: :model do
   it { should have_many :zone_days }
   it { should have_many :days }
   it { should validate_uniqueness_of :name }
+  it { should validate_presence_of :name }
 
   describe '.only_in_day' do
     it 'expect to return joined active record relation which has zone_day_id and zone_name' do

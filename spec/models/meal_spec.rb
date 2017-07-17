@@ -2,11 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Meal, type: :model do
   it { should belong_to :restaurant }
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :restaurant_id }
+  it { should validate_uniqueness_of(:name).scoped_to(:restaurant_id) }
 
   describe '.get_all_meals' do
     it 'expect to return all meal for specific zone and day' do
-      restaurant1 = Restaurant.create(name: 'Restaurant1')
-      restaurant2 = Restaurant.create(name: 'Restaurant2')
+      restaurant_owner1 = RestaurantOwner.create(name: 'John')
+      restaurant1 = Restaurant.create(name: 'Restaurant1', restaurant_owner_id: restaurant_owner1.id)
+      restaurant2 = Restaurant.create(name: 'Restaurant2', restaurant_owner_id: restaurant_owner1.id)
       meal1 = Meal.create(name: 'Meal1', restaurant_id: restaurant1.id)
       meal2 = Meal.create(name: 'Meal2', restaurant_id: restaurant1.id)
       meal3 = Meal.create(name: 'Meal3', restaurant_id: restaurant2.id)

@@ -3,6 +3,9 @@ class Meal < ActiveRecord::Base
 
   belongs_to :restaurant
 
+  validates :name, :restaurant_id, presence: true
+  validates :name, uniqueness: {scope: :restaurant_id}
+
   def self.get_all_meals zone_id, day
      Meal.where(
       "restaurant_id IN(?)",
