@@ -1,0 +1,19 @@
+{
+  "published": true,
+  "sort_order": 100,
+  "name": "Get All Meals Meal",
+  "end_point": "/1/all_meals/:day/:zone_id",
+  "http_method": "GET",
+  "params": [
+    {
+    "key": "day",
+    "required": true,
+    "type": "String"
+    },
+    {
+    "key": "zone_id",
+    "required": true,
+    "type" : "Integer"
+    }
+  ]
+}

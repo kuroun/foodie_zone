@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   get 'day/:day_id/assign_restaurants_to_zones', to: 'zone_days#assign_restaurants_to_zones', as: 'assign_restaurants_to_zones'
   get 'day/:day_id/add_zone', to: 'zone_days#add_zone', as: 'add_zone'
   post 'restaurant_zone_days/update_create', to: 'restaurant_zone_days#update_create', as: 'update_create_restaurant_zone_day'
-
   get 'delivery_schedule/index'
-  root 'delivery_schedule#index'
 
+  root 'delivery_schedule#index'
+  
+  mount Apidoco::Engine, at: "/docs"
   api versions: 1, module: 'api/v1' do
-    get 'all_meals', to: 'meals#get_all_meals', as: 'all_meals'
+    get 'all_meals/:day/:zone_id', to: 'meals#get_all_meals', as: 'all_meals'
+    delete 'meals/:meal_id', to: 'meals#destroy', as: 'delete_meal'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

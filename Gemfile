@@ -7,6 +7,7 @@ gem 'pg'
 gem "twitter-bootstrap-rails"
 gem 'seed_migration'
 gem 'rocket_pants'
+gem 'apidoco'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

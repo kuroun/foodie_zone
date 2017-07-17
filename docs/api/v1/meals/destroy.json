@@ -1,0 +1,18 @@
+{
+  "published": true,
+  "sort_order": 101,
+  "name": "Delete a specific meal",
+  "end_point": "/1/meals/:meal_id",
+  "http_method": "DELETE",
+  "header": {
+   "Authorization": "Token token=token"
+  },
+  "params": {
+    "key": "meal_id",
+    "required": true,
+    "type": "Integer"
+  },
+  "notes": [
+    "Authorization Token Need to be passed via header"
+  ]
+}
