@@ -1,9 +1,9 @@
 class AddRestaurantOwnerToRestaurant < ActiveRecord::Migration
   def up
-    add_reference :restaurants, :restaurant_owner, index: true, foreign_key: true
+    add_column :restaurants, :restaurant_owner_id, :integer, index: true, foreign_key: true
   end
 
   def down
-    remove_reference :restaurants, :restaurant_owner
+    remove_column :restaurants, :restaurant_owner_id
   end
 end

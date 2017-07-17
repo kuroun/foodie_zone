@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 20170717045915) do
     t.integer  "restaurant_owner_id"
   end
 
-  add_index "restaurants", ["restaurant_owner_id"], name: "index_restaurants_on_restaurant_owner_id"
-
   create_table "seed_migration_data_migrations", force: :cascade do |t|
     t.string   "version"
     t.integer  "runtime"
