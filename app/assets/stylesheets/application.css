@@ -20,6 +20,11 @@
    margin-bottom: 10px;
  }
 
+ .container {
+   margin-left: 10px;
+   margin-right: 10px;
+ }
+
  form .clearfix:before, form .clearfix:after {
    display: inline;
  }

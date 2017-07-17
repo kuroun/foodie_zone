@@ -1,5 +1,5 @@
 <h1>Delivery Schedule</h1>
-<table class="table">
+<table class="table table-responsive">
   <tr>
     <th>Monday</th>
     <th>Tuesday</th>
@@ -18,5 +18,4 @@
     <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Saturday'} %></td>
     <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Sunday'} %></td>
   </tr>
-
 </table>
