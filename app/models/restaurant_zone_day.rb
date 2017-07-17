@@ -8,4 +8,9 @@ class RestaurantZoneDay < ActiveRecord::Base
   def self.restaurant_assigned_to_any_zones_by_day(restaurant_id, day_id)
       where("restaurant_id =? AND zone_day_id IN(?)", restaurant_id, ZoneDay.where("day_id = ?", day_id).select(:id)).first
   end
+
+  def check_if_restaurant_exist
+  end
+  def check_if_zone_day_exist
+  end
 end

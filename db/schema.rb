@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716195249) do
+ActiveRecord::Schema.define(version: 20170717045915) do
 
   create_table "days", force: :cascade do |t|
     t.string   "name"
@@ -42,9 +42,12 @@ ActiveRecord::Schema.define(version: 20170716195249) do
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "restaurant_owner_id"
   end
+
+  add_index "restaurants", ["restaurant_owner_id"], name: "index_restaurants_on_restaurant_owner_id"
 
   create_table "seed_migration_data_migrations", force: :cascade do |t|
     t.string   "version"

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'delivery_schedule/index'
   root 'delivery_schedule#index'
 
+  api versions: 1, module: 'api/v1' do
+    get 'all_meals', to: 'meals#get_all_meals', as: 'all_meals'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

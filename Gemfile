@@ -6,6 +6,7 @@ gem 'rails', '4.2.9'
 gem 'pg'
 gem "twitter-bootstrap-rails"
 gem 'seed_migration'
+gem 'rocket_pants'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
