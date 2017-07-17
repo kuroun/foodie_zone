@@ -4,6 +4,6 @@ class Restaurant < ActiveRecord::Base
   belongs_to :restaurant_owner, class_name: 'RestaurantOwner'
 
   validates :name, uniqueness: true
-  validates :name, :restaurant_owner_id, presence: true
+  validates :name, presence: true
 
 end
