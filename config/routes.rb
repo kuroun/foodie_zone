@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :restaurants
   resources :zones, except: [:show]
   get 'day/:day_id/assign_restaurants_to_zones', to: 'zone_days#assign_restaurants_to_zones', as: 'assign_restaurants_to_zones'

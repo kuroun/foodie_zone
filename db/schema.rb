@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717045915) do
+ActiveRecord::Schema.define(version: 20170717215757) do
 
   create_table "days", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170717045915) do
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "auth_token"
   end
 
   create_table "zone_days", force: :cascade do |t|
