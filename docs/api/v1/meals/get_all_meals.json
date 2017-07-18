@@ -2,7 +2,7 @@
   "published": true,
   "sort_order": 100,
   "name": "Get All Meals Meal",
-  "end_point": "/1/all_meals/:day/:zone_id",
+  "end_point": "/1/all_meals/:day/zones/:zone_id",
   "http_method": "GET",
   "params": [
     {
@@ -19,7 +19,7 @@
   "examples" : [
     {
       "request" : {
-        "url" : "GET http://localhost:3000/1/all_meals/Monday/6"
+        "url" : "GET http://localhost:3000/1/all_meals/Monday/zones/6"
       },
       "response" : {
         "response":[

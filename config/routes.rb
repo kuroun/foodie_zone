@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   mount Apidoco::Engine, at: "/docs"
   api versions: 1, module: 'api/v1' do
-    get 'all_meals/:day/:zone_id', to: 'meals#get_all_meals', as: 'all_meals'
+    get 'all_meals/:day/zones/:zone_id', to: 'meals#get_all_meals', as: 'all_meals'
     delete 'meals/:meal_id/', to: 'meals#destroy', as: 'delete_meal'
   end
 
