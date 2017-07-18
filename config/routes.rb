@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get 'delivery_schedule/index'
 
   root 'delivery_schedule#index'
-  
+
   mount Apidoco::Engine, at: "/docs"
   api versions: 1, module: 'api/v1' do
     get 'all_meals/:day/:zone_id', to: 'meals#get_all_meals', as: 'all_meals'
-    delete 'meals/:meal_id', to: 'meals#destroy', as: 'delete_meal'
+    delete 'meals/:meal_id/', to: 'meals#destroy', as: 'delete_meal'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
