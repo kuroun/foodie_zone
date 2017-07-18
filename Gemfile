@@ -8,6 +8,7 @@ gem "twitter-bootstrap-rails"
 gem 'seed_migration'
 gem 'rocket_pants'
 gem 'apidoco'
+gem 'select-multiple-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

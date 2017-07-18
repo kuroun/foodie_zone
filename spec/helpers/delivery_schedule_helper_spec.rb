@@ -24,7 +24,7 @@ RSpec.describe DeliveryScheduleHelper, type: :helper do
       rzd1 = RestaurantZoneDay.create(restaurant_id: restaurant1.id, zone_day_id: zone_day1.id)
       rzd2 = RestaurantZoneDay.create(restaurant_id: restaurant2.id, zone_day_id: zone_day2.id)
 
-      expect(helper.total_restaurants('Monday')).to eq 2
+      expect(helper.total_restaurants(monday)).to eq 2
     end
   end
 

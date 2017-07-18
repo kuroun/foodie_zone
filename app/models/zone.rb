@@ -10,4 +10,9 @@ class Zone < ActiveRecord::Base
     .where("zone_days.day_id = ?", day_id)
     .select("zone_days.id as zone_day_id, zones.name as zone_name")
   }
+
+  scope :available_zones, -> (day_id) {
+    where("id NOT IN(?)", ZoneDay.where("day_id = ?", day_id).select(:zone_id))
+  }
+
 end

@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   resources :users
   resources :restaurants
   resources :zones, except: [:show]
+
+  get 'day/:day_id/adding_zones', to: 'zone_days#adding_zones', as: 'adding_zones'
+  post 'day/:day_id/added_zones', to: 'zone_days#added_zones', as: 'added_zones'
+  delete 'zone_days/:zone_day_id', to: 'zone_days#destroy', as: 'remove_zone_day'
   get 'day/:day_id/assign_restaurants_to_zones', to: 'zone_days#assign_restaurants_to_zones', as: 'assign_restaurants_to_zones'
-  get 'day/:day_id/add_zone', to: 'zone_days#add_zone', as: 'add_zone'
   post 'restaurant_zone_days/update_create', to: 'restaurant_zone_days#update_create', as: 'update_create_restaurant_zone_day'
   get 'delivery_schedule/index'
 

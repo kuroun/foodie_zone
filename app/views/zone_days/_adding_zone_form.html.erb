@@ -1,0 +1,28 @@
+<div id="add-zone-<%= @day.id %>" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%= "Add Zone to #{@day.name} " %></h4>
+      </div>
+      <% if(@available_zones.empty?) %>
+        <div class="modal-body">
+          <div class="alert alert-warning" role="alert">No available zone!</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      <% else %>
+        <%= form_tag url_for(controller: 'zone_days', action: 'added_zones'), method: 'post' do %>
+        <div class="modal-body">
+            <%= hidden_field_tag 'day_id', @day.id %>
+            <%= select_tag 'zone_id', options_from_collection_for_select(@available_zones, 'id', 'name'), class: 'form-control' %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= submit_tag 'Save changes', class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+      <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

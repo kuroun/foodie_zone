@@ -1,21 +1,13 @@
 <h1>Delivery Schedule</h1>
 <table class="table table-responsive">
   <tr>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
-    <th>Sunday</th>
+    <% Day.all.each do |day| %>
+      <th><%= day.name %></th>
+    <% end %>
   </tr>
   <tr>
-    <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Monday'} %></td>
-    <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Tuesday'} %></td>
-    <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Wednesday'} %></td>
-    <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Thursday'} %></td>
-    <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Friday'} %></td>
-    <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Saturday'} %></td>
-    <td><%= render partial: 'each_day', locals: {zones: @zones, day: 'Sunday'} %></td>
+    <% Day.all.each do |day| %>
+      <td><%= render partial: 'each_day', locals: {zone_days: @zone_days, day: day} %></td>
+    <% end %>
   </tr>
 </table>

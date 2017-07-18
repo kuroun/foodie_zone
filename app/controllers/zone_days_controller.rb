@@ -6,8 +6,19 @@ class ZoneDaysController < ApplicationController
     @zone_days = Zone.only_in_day(params[:day_id])
   end
 
-  def add_zone
-    @available_zones = nil
+  def adding_zones
+    @available_zones = Zone.available_zones(params[:day_id])
     @day = Day.find(params[:day_id])
+  end
+
+  def added_zones
+
+  end
+
+  def destroy
+    ZoneDay.find(params[:zone_day_id]).destroy
+    respond_to do |format|
+      format.html { redirect_to delivery_schedule_index_path, notice: 'Zone was successfully removed from day.' }
+    end
   end
 end

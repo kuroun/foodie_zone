@@ -4,16 +4,19 @@
     <%= total_restaurants(day) %>
   </span>
 </h4>
-<% zones.where('days.name' => day).each do |zone_day| %>
+<% zone_days.where('days.id' => day.id).each do |zone_day| %>
   <div class="btn-group" role="group">
       <button type="button" class="btn btn-xs btn-default">
         <%= "#{zone_day.zone.name} [#{total_restaurants_each_zone(zone_day.id)}]" %>
       </button>
-      <%= link_to '', class: 'btn btn-xs btn-danger zone-list'  do %>
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <%= link_to remove_zone_day_path(zone_day_id: zone_day.id ),
+        method: :delete,
+        data: { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+        class: 'btn btn-xs btn-danger zone-list' do %>
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       <% end %>
   </div>
   <br>
 <% end %>
-<%= link_to 'Add Zone', add_zone_path(day_id: Day.find_by(name: day).id), class: 'btn btn-xs btn-warning adding-button', remote: true %>
-<%= link_to 'Assign Restaurants to Zones', assign_restaurants_to_zones_path(day_id: Day.find_by(name: day).id), class: 'btn btn-xs btn-success adding-button' %>
+<%= link_to 'Add Zones', adding_zones_path(day_id: day.id), class: 'btn btn-xs btn-warning adding-button', remote: true %>
+<%= link_to 'Assign Restaurants to Zones', assign_restaurants_to_zones_path(day_id: day.id), class: 'btn btn-xs btn-success adding-button' %>

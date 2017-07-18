@@ -1,6 +1,6 @@
 class DeliveryScheduleController < ApplicationController
 
   def index
-    @zones = ZoneDay.includes(:zone, :day)
+    @zone_days = ZoneDay.includes(:zone, :day)
   end
 end

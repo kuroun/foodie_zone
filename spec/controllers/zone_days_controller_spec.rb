@@ -12,7 +12,7 @@ RSpec.describe ZoneDaysController, type: :controller do
   describe "GET #add_zone" do
     it "returns http success" do
       monday = Day.create(name: 'Monday')
-      xhr :get, :add_zone, day_id: monday.id, format: 'js'
+      xhr :get, :adding_zones, day_id: monday.id, format: 'js'
       expect(response).to have_http_status(:success)
     end
   end
