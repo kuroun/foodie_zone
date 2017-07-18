@@ -15,5 +15,66 @@
     "required": true,
     "type" : "Integer"
     }
+  ],
+  "examples" : [
+    {
+      "request" : {
+        "url" : "GET http://localhost:3000/1/all_meals/Monday/6"
+      },
+      "response" : {
+        "response":[
+          {
+            "id" : 310,
+            "name" : "Meal 10_31",
+            "restaurant_id":31,
+            "created_at" : "2017-07-14T21:30:18.855Z",
+            "updated_at" : "2017-07-14T21:30:18.855Z"
+          },
+          {
+            "id" : 313,
+            "name" : "Meal 3_32",
+            "restaurant_id" : 32,
+            "created_at" : "2017-07-14T21:30:18.864Z",
+            "updated_at" : "2017-07-14T21:30:18.864Z"
+            },
+            {
+              "id" : 316,
+              "name" : "Meal 6_32",
+              "restaurant_id" : 32,
+              "created_at" : "2017-07-14T21:30:18.869Z",
+              "updated_at" : "2017-07-14T21:30:18.869Z"
+            },
+            {
+              "id" : 317,
+              "name" : "Meal 7_32",
+              "restaurant_id" : 32,
+              "created_at" : "2017-07-14T21:30:18.872Z",
+              "updated_at" : "2017-07-14T21:30:18.872Z"
+            },
+            {
+              "id" : 318,
+              "name" : "Meal 8_32",
+              "restaurant_id" : 32,
+              "created_at" : "2017-07-14T21:30:18.876Z",
+              "updated_at" : "2017-07-14T21:30:18.876Z"
+            },
+            {
+              "id" : 319,
+              "name" : "Meal 9_32",
+              "restaurant_id" : 32,
+              "created_at" : "2017-07-14T21:30:18.879Z",
+              "updated_at" : "2017-07-14T21:30:18.879Z"
+            },
+            {
+              "id" : 320,
+              "name" : "Meal 10_32",
+              "restaurant_id" : 32,
+              "created_at" : "2017-07-14T21:30:18.880Z",
+              "updated_at" : "2017-07-14T21:30:18.880Z"
+              }
+            ],
+        "count" : 7
+      }
+    }
   ]
 }

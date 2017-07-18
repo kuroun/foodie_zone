@@ -14,5 +14,39 @@
   },
   "notes": [
     "Authorization Token Need to be passed via header"
+  ],
+  "examples" : [
+    {
+      "request" : {
+        "url" : "DELETE localhost:3000/1/meals/315",
+        "header" : {
+          "Authorization" : "Token token=6fd870d8a8bd3fb9ad5f3fcd479b994e"
+        }
+
+      },
+      "response" : {
+        "success" : {
+          "response": {
+            "id":315,
+            "name":"Meal 5_32",
+            "restaurant_id":32,
+            "created_at":"2017-07-14T21:30:18.866Z",
+            "updated_at":"2017-07-14T21:30:18.866Z"
+          }
+        },
+        "not_found" : {
+          "error": "not_found",
+          "error_description": "The requested resource could not be found."
+        },
+        "unauthenticated" : {
+          "error":"unauthenticated",
+          "error_description":"This action requires authentication to continue."
+        },
+        "forbidden" : {
+          "error": "forbidden",
+          "error_description": "The action you requested was forbidden."
+        }
+      }
+    }
   ]
 }
