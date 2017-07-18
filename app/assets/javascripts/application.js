@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require select-multiple
+//= require bootstrap-multiselect
 //= require turbolinks
 //= require_tree .

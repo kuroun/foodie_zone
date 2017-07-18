@@ -2,7 +2,7 @@ class ZoneDaysController < ApplicationController
 
   def assign_restaurants_to_zones
     @day = Day.find(params[:day_id])
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.order(:id)
     @zone_days = Zone.only_in_day(params[:day_id])
   end
 
@@ -12,7 +12,10 @@ class ZoneDaysController < ApplicationController
   end
 
   def added_zones
-
+    ZoneDay.bulk_create(params[:day_id], params[:zone_id])
+    respond_to do |format|
+      format.html { redirect_to delivery_schedule_index_path, notice: 'Zones were successfully added to day.' }
+    end
   end
 
   def destroy

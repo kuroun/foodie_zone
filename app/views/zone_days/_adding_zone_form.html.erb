@@ -15,7 +15,7 @@
         <%= form_tag url_for(controller: 'zone_days', action: 'added_zones'), method: 'post' do %>
         <div class="modal-body">
             <%= hidden_field_tag 'day_id', @day.id %>
-            <%= select_tag 'zone_id', options_from_collection_for_select(@available_zones, 'id', 'name'), class: 'form-control' %>
+            <%= select_tag 'zone_id', options_from_collection_for_select(@available_zones, 'id', 'name'), class: 'select-zones form-control', multiple: true %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -26,3 +26,7 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<script type="text/javascript">
+  $('.select-zones').multiselect();
+</script>
