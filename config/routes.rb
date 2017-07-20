@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :meals, except: [:new]
   resources :users
-  resources :restaurants
+  resources :restaurants do
+    get 'new_meal', to: 'restaurants#new_meal', as: 'new_meal', on: :member
+  end
   resources :zones, except: [:show]
 
   get 'day/:day_id/adding_zones', to: 'zone_days#adding_zones', as: 'adding_zones'

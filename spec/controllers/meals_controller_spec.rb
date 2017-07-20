@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe RestaurantsController, type: :controller do
+RSpec.describe MealsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Restaurant. As you add validations to Restaurant, be sure to
+  # Meal. As you add validations to Meal, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe RestaurantsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # RestaurantsController. Be sure to keep this updated too.
+  # MealsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      restaurant = Restaurant.create! valid_attributes
+      meal = Meal.create! valid_attributes
       get :index, {}, valid_session
       expect(response).to be_success
     end
@@ -51,44 +51,37 @@ RSpec.describe RestaurantsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      restaurant = Restaurant.create! valid_attributes
-      get :show, {:id => restaurant.to_param}, valid_session
-      expect(response).to be_success
-    end
-  end
-
-  describe "GET #new" do
-    it "returns a success response" do
-      get :new, {}, valid_session
+      meal = Meal.create! valid_attributes
+      get :show, {:id => meal.to_param}, valid_session
       expect(response).to be_success
     end
   end
 
   describe "GET #edit" do
     it "returns a success response" do
-      restaurant = Restaurant.create! valid_attributes
-      get :edit, {:id => restaurant.to_param}, valid_session
+      meal = Meal.create! valid_attributes
+      get :edit, {:id => meal.to_param}, valid_session
       expect(response).to be_success
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Restaurant" do
+      it "creates a new Meal" do
         expect {
-          post :create, {:restaurant => valid_attributes}, valid_session
-        }.to change(Restaurant, :count).by(1)
+          post :create, {:meal => valid_attributes}, valid_session
+        }.to change(Meal, :count).by(1)
       end
 
-      it "redirects to the created restaurant" do
-        post :create, {:restaurant => valid_attributes}, valid_session
-        expect(response).to redirect_to(Restaurant.last)
+      it "redirects to the created meal" do
+        post :create, {:meal => valid_attributes}, valid_session
+        expect(response).to redirect_to(Meal.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, {:restaurant => invalid_attributes}, valid_session
+        post :create, {:meal => invalid_attributes}, valid_session
         expect(response).to be_success
       end
     end
@@ -100,51 +93,42 @@ RSpec.describe RestaurantsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested restaurant" do
-        restaurant = Restaurant.create! valid_attributes
-        put :update, {:id => restaurant.to_param, :restaurant => new_attributes}, valid_session
-        restaurant.reload
+      it "updates the requested meal" do
+        meal = Meal.create! valid_attributes
+        put :update, {:id => meal.to_param, :meal => new_attributes}, valid_session
+        meal.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the restaurant" do
-        restaurant = Restaurant.create! valid_attributes
-        put :update, {:id => restaurant.to_param, :restaurant => valid_attributes}, valid_session
-        expect(response).to redirect_to(restaurant)
+      it "redirects to the meal" do
+        meal = Meal.create! valid_attributes
+        put :update, {:id => meal.to_param, :meal => valid_attributes}, valid_session
+        expect(response).to redirect_to(meal)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        restaurant = Restaurant.create! valid_attributes
-        put :update, {:id => restaurant.to_param, :restaurant => invalid_attributes}, valid_session
+        meal = Meal.create! valid_attributes
+        put :update, {:id => meal.to_param, :meal => invalid_attributes}, valid_session
         expect(response).to be_success
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested restaurant" do
-      restaurant = Restaurant.create! valid_attributes
+    it "destroys the requested meal" do
+      meal = Meal.create! valid_attributes
       expect {
-        delete :destroy, {:id => restaurant.to_param}, valid_session
-      }.to change(Restaurant, :count).by(-1)
+        delete :destroy, {:id => meal.to_param}, valid_session
+      }.to change(Meal, :count).by(-1)
     end
 
-    it "redirects to the restaurants list" do
-      restaurant = Restaurant.create! valid_attributes
-      delete :destroy, {:id => restaurant.to_param}, valid_session
-      expect(response).to redirect_to(restaurants_url)
-    end
-  end
-
-  describe "GET #new_meal" do
-    it "returns a success response" do
-      restaurant = Restaurant.create! valid_attributes
-      get new_meal_restaurant_path(id: restaurant.id), {}, valid_session
-      expect(response).to be_success
+    it "redirects to the meals list" do
+      meal = Meal.create! valid_attributes
+      delete :destroy, {:id => meal.to_param}, valid_session
+      expect(response).to redirect_to(meals_url)
     end
   end
-
 
 end

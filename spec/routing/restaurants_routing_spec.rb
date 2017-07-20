@@ -35,5 +35,9 @@ RSpec.describe RestaurantsController, type: :routing do
       expect(:delete => "/restaurants/1").to route_to("restaurants#destroy", :id => "1")
     end
 
+    it "routes to #new_meal" do
+      expect(:get => "/restaurants/1/new_meal").to route_to("restaurants#new_meal", :id => "1")
+    end
+
   end
 end

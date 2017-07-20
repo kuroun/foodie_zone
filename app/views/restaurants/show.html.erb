@@ -20,6 +20,7 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+<%= link_to 'Add Meal', new_meal_restaurant_path(id: @restaurant.id), :class => 'btn btn-success' %>
 <hr>
 <h4>Menu</h4>
 <table class="table table-responsive">
@@ -30,9 +31,17 @@
   </tr>
   <% @all_meals.each do |meal| %>
     <tr>
-      <td><%= meal.id %></td>
+      <td><%= link_to meal.id, meal_path(meal) %></td>
       <td><%= meal.name %></td>
-      <td></td>
+      <td>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_meal_path(meal), :class => 'btn btn-default btn-xs' %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    meal_path(meal),
+                    :method => :delete,
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-xs btn-danger' %>
+      </td>
     </tr>
   <% end %>
 </table>
