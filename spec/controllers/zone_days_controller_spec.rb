@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ZoneDaysController, type: :controller do
+  login_user
+  
   describe "GET #assign_restaurants_to_zones" do
     it "returns http success" do
       monday = Day.create(name: 'Monday')

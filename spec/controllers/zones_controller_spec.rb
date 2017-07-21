@@ -28,6 +28,8 @@ RSpec.describe ZonesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Zone. As you add validations to Zone, be sure to
   # adjust the attributes here as well.
+  login_user
+  
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }

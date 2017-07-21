@@ -9,6 +9,7 @@ gem 'seed_migration'
 gem 'rocket_pants'
 gem 'apidoco'
 gem 'bootstrap-multiselect-rails'
+gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

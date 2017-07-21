@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users, path: '/devise'
   resources :meals, except: [:new]
   resources :users
   resources :restaurants do

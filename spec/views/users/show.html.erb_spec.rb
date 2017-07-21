@@ -5,6 +5,8 @@ RSpec.describe "users/show", type: :view do
     @user = assign(:user, User.create!(
       :name => "Name",
       :type => "Admin",
+      :email => "name@gmail.com",
+      :password => "123456",
       :auth_token => "Auth Token"
     ))
   end
