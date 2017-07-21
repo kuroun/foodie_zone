@@ -5,7 +5,7 @@ class AddUsers < SeedMigration::Migration
   end
 
   def down
-    Admin.find_by(name: 'Admin')&.destroy
+    Admin.find_by(name: 'Admin 1')&.destroy
     RestaurantOwner.find_by(name: 'Owner 1')&.destroy
   end
 end
