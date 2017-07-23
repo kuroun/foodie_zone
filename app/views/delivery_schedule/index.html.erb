@@ -1,12 +1,12 @@
 <h1>Delivery Schedule</h1>
 <table class="table table-responsive">
   <tr>
-    <% Day.all.each do |day| %>
+    <% Day.find_each do |day| %>
       <th><%= day.name %></th>
     <% end %>
   </tr>
   <tr>
-    <% Day.all.each do |day| %>
+    <% Day.find_each do |day| %>
       <td><%= render partial: 'each_day', locals: {zone_days: @zone_days, day: day} %></td>
     <% end %>
   </tr>

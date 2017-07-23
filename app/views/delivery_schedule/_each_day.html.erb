@@ -7,7 +7,7 @@
 <% if(zone_days.where('days.id' => day.id).count == 0) %>
   <div class="alert alert-warning" role="alert">No zone.</div>
 <% else %>
-  <% zone_days.where('days.id' => day.id).order(:zone_id).each do |zone_day| %>
+  <% zone_days.where('days.id' => day.id).order(:zone_id).find_each do |zone_day| %>
     <div class="btn-group" role="group">
         <button type="button" class="btn btn-xs btn-default">
           <%= "#{zone_day.zone.name} [#{total_restaurants_each_zone(zone_day.id)}]" %>

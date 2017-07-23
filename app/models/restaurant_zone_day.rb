@@ -11,7 +11,9 @@ class RestaurantZoneDay < ActiveRecord::Base
   end
 
   def check_if_restaurant_exist
+
   end
+
   def check_if_zone_day_exist
   end
 end
