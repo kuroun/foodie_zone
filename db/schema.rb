@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720070451) do
+ActiveRecord::Schema.define(version: 20170723234725) do
 
   create_table "days", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "previous_day_id"
+    t.integer  "next_day_id"
   end
 
   create_table "meals", force: :cascade do |t|

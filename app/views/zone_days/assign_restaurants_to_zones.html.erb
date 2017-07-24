@@ -23,7 +23,17 @@
 </table>
 <nav aria-label="">
   <ul class="pager">
-    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Sunday</a></li>
-    <li class="next"><a href="#">Tuesday <span aria-hidden="true">&rarr;</span></a></li>
+    <li class="previous">
+      <%= link_to assign_restaurants_to_zones_path(day_id: @day.previous_day_id) do %>
+        <span aria-hidden="true">&larr;</span>
+        <%= @day.previous_day.name %>
+      <% end %>
+    </li>
+    <li class="next">
+      <%= link_to assign_restaurants_to_zones_path(day_id: @day.next_day_id) do %>
+        <%= @day.next_day.name %>
+        <span aria-hidden="true">&rarr;</span>
+      <% end %>
+    </li>
   </ul>
 </nav>
